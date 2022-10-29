@@ -9,13 +9,14 @@ services:
         uid: 1000
       context: .
       dockerfile: docker/dockerfiles/php/Dockerfile
-    image: digitalocean.com/php
+    image: digitalocean.com/php:8.0
     container_name: freela-app
     restart: unless-stopped
     tty: true
     environment:
       SERVICE_NAME: freela-app
       SERVICE_TAGS: dev
+        - PHP_IDE_CONFIG=serverName=freela
     working_dir: /var/www
     volumes:
       - ./:/var/www
@@ -24,8 +25,6 @@ services:
     expose:
       - 9000
       - 9001
-    environment:
-      - PHP_IDE_CONFIG=serverName=freela
     networks:
       - freela-network
 
