@@ -9,7 +9,7 @@ services:
         uid: 1000
       context: .
       dockerfile: docker/dockerfiles/php/Dockerfile
-    image: digitalocean.com/php:8.0
+    image: digitalocean.com/php
     container_name: freela-app
     restart: unless-stopped
     tty: true
