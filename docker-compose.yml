@@ -14,17 +14,17 @@ services:
     restart: unless-stopped
     tty: true
     environment:
-      SERVICE_NAME: freela-app
+      SERVICE_NAME: PHPSTORM
       SERVICE_TAGS: dev
-        - PHP_IDE_CONFIG=serverName=freela
+        - PHP_IDE_CONFIG=serverName=PHPSTORM
     working_dir: /var/www
     volumes:
       - ./:/var/www
       - ./docker/conf/php/conf.d/xdebug.ini:/usr/local/etc/php/conf.d/xdebug.ini
       - ./docker/conf/php/conf.d/error_reporting.ini:/usr/local/etc/php/conf.d/error_reporting.ini
-    expose:
-      - 9000
-      - 9001
+    ports:
+      - "5173:5173"
+      - "9001:9001"
     networks:
       - freela-network
 
@@ -45,7 +45,7 @@ services:
 
   #MySQL Service
   mysql:
-    image: mysql:5.7.22
+    image: mysql
     container_name: freela-db
     restart: unless-stopped
     tty: true
