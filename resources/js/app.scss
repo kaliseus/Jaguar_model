@@ -1,4 +1,14 @@
 // Define variable defaults
+.carousel-inner{
+    // height: 300px;
+}
+
+.item, img{
+    height: 100% !important;
+    width:  100% !important;
+    border: 1px solid red;
+}
+
 $body-bg: #000;
 $body-color: #111;
 
